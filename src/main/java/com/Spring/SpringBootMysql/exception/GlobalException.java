@@ -15,7 +15,7 @@ public class GlobalException {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<String> handleNullException(Exception ex){
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error has occured");
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error has occured" + ex.getMessage());
     }
     
 }
