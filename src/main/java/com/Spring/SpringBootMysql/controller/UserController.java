@@ -26,7 +26,9 @@ public class UserController {
 
     @PostMapping("/create")
     public User createMember(@RequestBody User user) {
+
         if(user == null) throw new NullPointerException();
+
         user.setCreatedAt(new Date());
         user.setUpdatedAt(new Date());
         return userRepo.save(user);
@@ -34,6 +36,7 @@ public class UserController {
 
     @PostMapping("/addMember")
     public User addMember(@RequestBody User user) {
+        if(user == null) throw new NullPointerException();
         return userService.addMember(user);
     }
 }
